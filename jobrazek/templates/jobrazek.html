@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+    <head></head>
+    <body>
+        <form action="{% url 'main' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit" />
+        </form>
+        {% for obrazek in Jobrazki %}
+            <img src="{{ obrazek.obrazkowa_sciezka.url }}"/>
+        {% endfor %}
+    </body>
+</html>
